@@ -1,0 +1,38 @@
+<mat-card>
+    <mat-card-title>Confirmar exclusão do Cliente</mat-card-title>
+    <form action="">
+        <mat-form-field>
+            <input 
+                matInput 
+                placeholder="Nome" 
+                [value]="client.name"
+                name="name"
+                disabled>
+        </mat-form-field>
+        <mat-form-field>
+            <input 
+                matInput 
+                placeholder="Telefone"
+                [value]="client.phone"
+                name="phone"
+                disabled>
+        </mat-form-field>
+        <mat-form-field>
+            <input 
+                matInput 
+                placeholder="E-mail"
+                [value]="client.email"
+                name="email"
+                disabled>
+        </mat-form-field>
+    </form>
+
+    <button mat-raised-button (click)="deleteClient()" color="warn">
+        Deletar
+    </button>
+    
+    <button mat-raised-button (click)="cancel()" >
+        Cancelar
+    </button>
+</mat-card>
+
