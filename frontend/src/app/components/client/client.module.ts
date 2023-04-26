@@ -1,6 +1,7 @@
 export interface Client {
     id?: number
-    name: string
-    phone: string,
+    nome: string
+    telefone: string
     email?: string
+    tipo_cadastro: number
 }

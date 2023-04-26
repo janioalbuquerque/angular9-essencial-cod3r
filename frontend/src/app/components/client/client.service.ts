@@ -9,7 +9,7 @@ import { Observable, EMPTY } from 'rxjs';
 })
 export class ClientService {
 
-  baseUrl = 'http://localhost:3001/clients';
+  baseUrl = 'http://localhost:8080/pessoaController';
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
 
@@ -23,20 +23,22 @@ export class ClientService {
   }
 
   create(client: Client): Observable<Client>{
-    return this.http.post<Client>(this.baseUrl,client).pipe(
+    const url = `${this.baseUrl}/salvarPessoa`;
+    return this.http.post<Client>(url,client).pipe(
       map((obj) => obj),
       catchError(e => this.errorHandler(e))
     )}
 
   read(): Observable<Client[]> {
-    return this.http.get<Client[]>(this.baseUrl).pipe(
+    const url = `${this.baseUrl}/listarPessoas`;
+    return this.http.get<Client[]>(url).pipe(
       map((obj) => obj),
       catchError(e => this.errorHandler(e))
     )
   }
 
   readById(id: number): Observable<Client> {
-    const url = `${this.baseUrl}/${id}`;
+    const url = `${this.baseUrl}/listarPessoa/${id}`;
     return this.http.get<Client>(url).pipe(
       map((obj) => obj),
       catchError(e => this.errorHandler(e))
@@ -44,7 +46,7 @@ export class ClientService {
   }
 
   update(client: Client): Observable<Client> {
-    const url = `${this.baseUrl}/${client.id}`;
+    const url = `${this.baseUrl}/atualizarPessoa`;
     return this.http.put<Client>(url,client).pipe(
       map((obj) => obj),
       catchError(e => this.errorHandler(e))
@@ -52,7 +54,7 @@ export class ClientService {
   }
 
   delete(id: number): Observable<Client> {
-    const url = `${this.baseUrl}/${id}`;
+    const url = `${this.baseUrl}/deletarPessoa/${id}`;
     return this.http.delete<Client>(url).pipe(
       map((obj) => obj),
       catchError(e => this.errorHandler(e))

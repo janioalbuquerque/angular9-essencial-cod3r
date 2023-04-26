@@ -25,6 +25,7 @@ export class ProductReadComponent implements AfterViewInit, OnInit {
 
   ngOnInit(): void {
     this.dataSource = new ProductReadDataSource(this.productService, this.router);    
+     
     }
 
 

@@ -8,12 +8,15 @@ import { Client } from '../client.module';
   templateUrl: './client-create.component.html',
   styleUrls: ['./client-create.component.css']
 })
-export class ClientCreateComponent implements OnInit {
 
+
+export class ClientCreateComponent implements OnInit {
+  
   client: Client = {
-    name: '',
-    phone: '',
-    email: ''
+    nome: '',
+    telefone: '',
+    email: '',
+    tipo_cadastro: 1
   }
 
   constructor(private clientService: ClientService, private router: Router) { }
