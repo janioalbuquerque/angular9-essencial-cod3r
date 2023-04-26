@@ -12,20 +12,14 @@ import { Router } from '@angular/router';
  * encapsulate all logic for fetching and manipulating the displayed data
  * (including sorting, pagination, and filtering).
  */
-
 export class ProductReadDataSource extends DataSource<Product> {
-  
-    ngOnInit(): void {
-        this.productService.read().subscribe(products=> {
-         this.data = products
-        })  }
-
-        
 
 
   constructor(private productService: ProductService, router: Router) {
-    super();         
+    super();    
   }
+
+  
 
   data: Product[] = [];
   paginator: MatPaginator;
