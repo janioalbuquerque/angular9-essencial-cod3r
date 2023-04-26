@@ -23,7 +23,8 @@ export class ProductService {
   }
 
   create(product: Product): Observable<Product>{
-    return this.http.post<Product>(this.baseUrl,product).pipe(
+    const url = `${this.baseUrl}/salvarProduto`;
+    return this.http.post<Product>(url,product).pipe(
       map((obj) => obj),
       catchError(e => this.errorHandler(e))
     )}
@@ -37,7 +38,7 @@ export class ProductService {
   }
 
   readById(id: number): Observable<Product> {
-    const url = `${this.baseUrl}/${id}`;
+    const url = `${this.baseUrl}/listarProduto/${id}`;
     return this.http.get<Product>(url).pipe(
       map((obj) => obj),
       catchError(e => this.errorHandler(e))
@@ -45,7 +46,7 @@ export class ProductService {
   }
 
   update(product: Product): Observable<Product> {
-    const url = `${this.baseUrl}/${product.id}`;
+    const url = `${this.baseUrl}/atualizarProduto`;
     return this.http.put<Product>(url,product).pipe(
       map((obj) => obj),
       catchError(e => this.errorHandler(e))
@@ -53,7 +54,7 @@ export class ProductService {
   }
 
   delete(id: number): Observable<Product> {
-    const url = `${this.baseUrl}/${id}`;
+    const url = `${this.baseUrl}/deletarProduto/${id}`;
     return this.http.delete<Product>(url).pipe(
       map((obj) => obj),
       catchError(e => this.errorHandler(e))
