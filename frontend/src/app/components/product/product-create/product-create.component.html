@@ -1,27 +1,52 @@
 <mat-card>
     <mat-card-title>Novo Produto</mat-card-title>
     <form action="">
-        <mat-form-field>
+        <mat-grid-list cols="6" gutterSize="5px">
+        <mat-form-field  [style.width.px]=500 appearance="outline">
+            <mat-label>Nome</mat-label>
             <input 
                 matInput 
-                placeholder="Nome" 
                 [(ngModel)]="product.nome"
                 name="nome">
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Preço (R$)</mat-label>
             <input 
                 matInput 
-                placeholder="Preço (R$)"
                 [(ngModel)]="product.preco"
                 name="preco">
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Estoque</mat-label>
             <input 
                 matInput 
                 placeholder="Estoque"
                 [(ngModel)]="product.estoque"
                 name="estoque">
         </mat-form-field>
+        <mat-form-field  [style.width.px]=920 appearance="outline">
+            <mat-label>Descrição</mat-label>
+            <input 
+                matInput 
+                placeholder="Descrição"
+                [(ngModel)]="product.descricao"
+                name="descricao">
+        </mat-form-field>
+        <mat-form-field  [style.width.px]=500 appearance="outline">
+            <mat-label>Código de barras</mat-label>
+            <input 
+                matInput 
+                [(ngModel)]="product.cod_barras"
+                name="cod_barras">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Preço de custo(R$)</mat-label>
+            <input 
+                matInput 
+                [(ngModel)]="product.preco"
+                name="preco">
+        </mat-form-field>
+    </mat-grid-list>
     </form>
 
     <button mat-raised-button (click)="createProduct()" color="primary">

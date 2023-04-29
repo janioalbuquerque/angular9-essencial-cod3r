@@ -1,27 +1,30 @@
 <mat-card>
     <mat-card-title>Alterar Produto</mat-card-title>
     <form action="">
-        <mat-form-field>
+        <mat-grid-list cols="6" gutterSize="5px">
+        <mat-form-field  [style.width.px]=500 appearance="outline">
+            <mat-label>Nome</mat-label>
             <input 
                 matInput 
-                placeholder="Nome" 
                 [(ngModel)]="product.nome"
                 name="nome">
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Preço (R$)</mat-label>
             <input 
                 matInput 
-                placeholder="Preço (R$)"
                 [(ngModel)]="product.preco"
                 name="preco">
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Estoque</mat-label>
             <input 
                 matInput 
                 placeholder="Estoque"
                 [(ngModel)]="product.estoque"
                 name="estoque">
         </mat-form-field>
+    </mat-grid-list>
     </form>
 
     <button mat-raised-button (click)="updateProduct()" color="primary">
